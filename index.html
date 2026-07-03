@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janu Patil | Full Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00d9ff;
+            --dark: #0f0f1e;
+            --dark2: #1a1a2e;
+            --dark3: #16213e;
+            --text: #e4e4e4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.2rem 8%;
+            background: rgba(15, 15, 30, 0.8);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #2a2a4a;
+        }
+
+       .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        nav a:hover::after { width: 100%; }
+
+       .menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+       .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            background: radial-gradient(circle at top right, #1a1a2e, #0f0f1e);
+        }
+
+       .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+       .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+       .hero-text h1 span { color: var(--primary); }
+
+       .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+       .typing {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+       .hero-img {
+            text-align: center;
+        }
+
+       .hero-img img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 5px solid var(--primary);
+            box-shadow: 0 0 50px rgba(0, 217, 255, 0.3);
+            object-fit: cover;
+        }
+
+       .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+            margin-right: 1rem;
+        }
+
+       .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+       .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+
+       .social {
+            margin-top: 2rem;
+        }
+
+       .social a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            border: 1px solid #2a2a4a;
+            border-radius: 50%;
+            color: var(--text);
+            margin-right: 1rem;
+            transition: 0.3s;
+        }
+
+       .social a:hover {
+            background: var(--primary);
+            color: var(--dark);
+            border-color: var(--primary);
+        }
+
+        /* Sections Common */
+        section {
+            padding: 100px 8%;
+        }
+
+       .heading {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+       .heading h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+       .heading p {
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About */
+       .about {
+            background: var(--dark2);
+        }
+
+       .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+       .about-img img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+       .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+       .stat-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--dark3);
+            border-radius: 12px;
+        }
+
+       .stat-box h3 {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        /* Services */
+       .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+       .service-card {
+            background: var(--dark2);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            border: 1px solid #2a2a4a;
+            transition: 0.3s;
+        }
+
+       .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+        }
+
+       .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Experience */
+       .experience {
+            background: var(--dark2);
+        }
+
+       .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+       .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+
+       .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+       .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--dark);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+       .left { left: 0; }
+       .right { left: 50%; }
+       .left::after { right: -10px; }
+       .right::after { left: -10px; }
+
+       .timeline-content {
+            padding: 1.5rem;
+            background: var(--dark3);
+            border-radius: 12px;
+        }
+
+       .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects */
+       .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+       .project-card {
+            background: var(--dark2);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #2a2a4a;
+        }
+
+       .project-img {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+       .project-info {
+            padding: 1.8rem;
+        }
+
+       .tech {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+       .tech span {
+            background: var(--dark3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Contact */
+       .contact {
+            background: var(--dark2);
+        }
+
+       .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+       .contact-info h3 {
+            margin-bottom: 2rem;
+        }
+
+       .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+       .info-item i {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: var(--dark3);
+            border-radius: 50%;
+            color: var(--primary);
+        }
+
+       .contact-form input,.contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 1.5rem;
+            background: var(--dark3);
+            border: 1px solid #2a2a4a;
+            border-radius: 8px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+       .contact-form input:focus,.contact-form textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark);
+            border-top: 1px solid #2a2a4a;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+           .hero-content,.about-content,.contact-container {
+                grid-template-columns: 1fr;
+            }
+           .hero-img { order: -1; }
+           .timeline::after { left: 31px; }
+           .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+           .timeline-item::after { left: 21px; }
+           .right { left: 0; }
+            nav ul { display: none; }
+           .menu-btn { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Neha.Dev</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Hi, Mi <span>Neha Patil</span></h1>
+                <h1>Ek <span class="typing">Frontend Developer</span></h1>
+                <p>Beautiful, fast aani user-friendly websites banavte. React, JavaScript aani UI/UX madhe expertise aahe. Tumcha next project sathi ready!</p>
+                <div>
+                    <a href="#contact" class="btn">Hire Me</a>
+                    <a href="#projects" class="btn btn-outline">My Work</a>
+                </div>
+                <div class="social">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <img src="https://i.imgur.com/8Km9tLL.jpg" alt="Janu">
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="heading">
+            <h2>About Me</h2>
+            <p>Mi kon aahe aani ka mala hire karava</p>
+        </div>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="https://i.imgur.com/8Km9tLL.jpg" alt="About">
+            </div>
+            <div>
+                <h3>Frontend Developer with 3+ Years Experience</h3>
+                <p>Mala code karayla aani sundar UI banvayla khup aavadta. HTML, CSS, JavaScript pasun React paryant sarv yet. Responsive design, performance optimization aani clean code he majhe main focus aahet.</p>
+                <p>Mi Jalgaon chi aahe, pan remote kaam karayla ekdam ready. Tumhi startup asal ki MNC, me quality work dete.</p>
+                <div class="stats">
+                    <div class="stat-box">
+                        <h3>50+</h3>
+                        <p>Projects</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>3+</h3>
+                        <p>Years Exp</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>30+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="heading">
+            <h2>My Services</h2>
+            <p>Me kay karu shakte tumchya company sathi</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>Web Development</h3>
+                <p>Modern, fast, SEO-friendly websites. React, Next.js, JavaScript. Mobile-first approach.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-palette"></i>
+                <h3>UI/UX Design</h3>
+                <p>Figma madhe design, user la samjel ashi. Wireframe pasun final design paryant.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Responsive Design</h3>
+                <p>Website mobile, tablet, desktop - sarvat perfect disli pahije. 100% responsive guarantee.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="experience" id="experience">
+        <div class="heading">
+            <h2>Work Experience</h2>
+            <p>Mi kuthe kuthe kaam kelay</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Senior Frontend Dev</h3>
+                    <h4>Tech Solutions Pvt Ltd | 2024 - Present</h4>
+                    <p>React projects lead karte. Team manage karte. Performance 40% ne vadhavla.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Web Developer</h3>
+                    <h4>StartupXYZ | 2022 - 2024</h4>
+                    <p>0 pasun product banavla. 10,000+ users handle karnara dashboard design kela.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Intern</h3>
+                    <h4>WebCrafters | 2021 - 2022</h4>
+                    <p>HTML/CSS shikle aani 15+ client websites banavlya. Best intern award milala.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+        <div class="heading">
+            <h2>Latest Projects</h2>
+            <p>Majhe best kaam bagha</p>
+        </div>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-img">🛒</div>
+                <div class="project-info">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Full shopping website with cart, payment gateway, admin panel.</p>
+                    <div class="tech">
+                        <span>React</span><span>Node.js</span><span>MongoDB</span>
+                    </div>
+                    <a href="#" class="btn">Live Demo</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">📊</div>
+                <div class="project-info">
+                    <h3>SaaS Dashboard</h3>
+                    <p>Real-time analytics dashboard with charts. 50+ components.</p>
+                    <div class="tech">
+                        <span>Next.js</span><span>Chart.js</span><span>Tailwind</span>
+                    </div>
+                    <a href="#" class="btn">Live Demo</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">🎓</div>
+                <div class="project-info">
+                    <h3>EdTech Platform</h3>
+                    <p>Online course website with video player, quiz, certificate.</p>
+                    <div class="tech">
+                        <span>React</span><span>Firebase</span><span>Stripe</span>
+                    </div>
+                    <a href="#" class="btn">Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="heading">
+            <h2>Contact Me</h2>
+            <p>Project aahe? Job aahe? Message kara!</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Bola Ki!</h3>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>janu.patil@gmail.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+91 98765 43210</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Jalgaon, Maharashtra - Remote Available</p>
+                    </div>
+                </div>
+            <form class="contact-form" onsubmit="sendMsg(event)">
+                <input type="text" placeholder="Tumcha Nav" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Subject">
+                <textarea rows="5" placeholder="Tumcha Message..." required></textarea>
+                <button type="submit" class="btn">Message Pathva</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Neha Patil.</p>
+    </footer>
+
+    <script>
+        // Typing Effect
+        const texts = ['Frontend Developer', 'UI/UX Designer', 'React Expert', 'Problem Solver'];
+        let count = 0, index = 0, currentText = '', letter = '';
+
+        (function type() {
+            if (count === texts.length) count = 0;
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+            document.querySelector('.typing').textContent = letter;
+            if (letter.length === currentText.length) {
+                count++;
+                index = 0;
+                setTimeout(type, 2000);
+            } else {
+                setTimeout(type, 100);
+            }
+        })();
+
+        // Mobile Menu
+        document.querySelector('.menu-btn').onclick = () => {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex'? 'none' : 'flex';
+        };
+
+        // Contact Form
+        function sendMsg(e) {
+            e.preventDefault();
+            alert('Dhanyawad Janu! Tumcha message mala milala. Me 24 taasat reply karen 😊');
+            e.target.reset();
+        }
+
+        console.log("Hey HR! 🚀 Code baghun impressed? janupatil@gmail.com var mail kara lagech!");
+    </script>
+</body>
+</html>
